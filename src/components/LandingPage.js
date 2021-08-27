@@ -21,7 +21,6 @@ import zero from '../assets/images/default.png';
 const LandingPage = () => {
     const [pictures, setPictures] = useState("");
     let imageWrapper = useRef(null);
-    let info = useRef(null);
 
     let tl = gsap.timeline();
     let tl2 = gsap.timeline();
@@ -42,16 +41,16 @@ const LandingPage = () => {
             <LandingSection>
                 <MainContainer>
                     <TextContainer>
-                        {data.map((item, index) => (
-                            <>
+                        {data.map((item, index) => {
+                            return (
                                 <div key={index}>
                                     <TextLi onMouseEnter={() => onHover(item)} onMouseLeave={() => noHover(item)}>
                                         {item.title}
                                     </TextLi>
                                     <Hr />
                                 </div>
-                            </>
-                        ))}
+                            )
+                        })}
                     </TextContainer>
                     <ImageWrapper>
                         <DefaultImg src={zero} className="default" />
